@@ -1,0 +1,20 @@
+Definindo a página:
+Terei as seguintes telas: 
+1. SETUP
+1.1. Quantidade de rounds
+1.2. Respirações por round 
+1.3. Intervalo entre cada respiração
+1.4. Duração da hiper-inalação
+2. O PROCESSO
+2.1. Preparação
+2.1.1. Espera temporária com o número de rounds
+2.2. o ciclo
+2.2.1. Respirações serão contadas
+2.2.2. A última respiração terá o dobro de tempo e terá uma mensagem um pouco diferente
+2.3. Prender a respiração, onde um cronômetro manterá o controle de quanto tempo o usuário está sem respirar.
+2.3.1. Haverá um botão para cessar a prisão de ar
+2.4. Inalação total
+2.4.1. Se ainda houver outros rounds à frente, repetir a partir do segundo passo
+2.4.2. Se esse for o último, encerrar e avançar para a tela de resultados
+3. RESULTADOS
+3.1. Mostrar a duração 

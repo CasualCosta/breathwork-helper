@@ -1,0 +1,4 @@
+// export const ExampleContext = createContext(default)
+// const context = useContext(ExampleContext)
+// <ExampleContext.Provider value={value} />
+// </ExampleContext.Provider>
