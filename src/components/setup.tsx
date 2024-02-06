@@ -1,7 +1,13 @@
-const setup = () => {
+import SetupInput from "./SetupInput"
+
+const Setup = () => {
   return (
-    <div>setup</div>
+    <div>
+      <SetupInput type="roundAmount" />
+      <SetupInput type="breathCount" />
+      <SetupInput type="breathSpeed" />
+    </div>
   )
 }
 
-export default setup
+export default Setup
