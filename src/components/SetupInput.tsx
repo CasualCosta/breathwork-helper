@@ -6,16 +6,19 @@ type Props = {
 }
 
 const SetupInput: React.FC<Props> = ({type}) => {
-    const description: string = setDescription(type)
-    const value: number = getValue(type)
-    function setDescription(type: Props["type"]): string {
+    const description: string = setDescription()
+    const value: number = getValue()
+    function setDescription(): string {
         switch(type){
             case "roundAmount": return "Amount of rounds"
             case "breathCount": return "Amount of breaths"
             case "breathSpeed": return "Speed"
         }
     }
-    function getValue(type: Props["type"]): number {
+    function getValue(): number {
+        if(!useContext(SessionContext)){
+            throw new Error("Context is undefined.")
+        }
         switch(type){
             case "roundAmount": return useContext(SessionContext).rounds
             case "breathCount": return useContext(SessionContext).breathCount
