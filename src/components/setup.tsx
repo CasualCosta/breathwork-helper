@@ -5,7 +5,7 @@ const Setup = () => {
     <div>
       <SetupInput type="roundAmount" />
       <SetupInput type="breathCount" />
-      <SetupInput type="breathSpeed" />
+      <SetupInput type="breathInterval" />
     </div>
   )
 }
