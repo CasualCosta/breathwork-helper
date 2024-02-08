@@ -4,11 +4,17 @@ import { SessionContext } from '../SessionContext'
 type Props = {
     type: "roundAmount" | "breathCount" | "breathInterval"
 }
+type Limits = {
+    min: number
+    max: number
+}
 
 const SetupInput: React.FC<Props> = ({type}) => {
     const description: string = setDescription()
     const value: number = getValue()
     const setter = getAction()
+    const limits = getLimits()
+    
 
     function setDescription(): string {
         switch(type){
@@ -38,6 +44,21 @@ const SetupInput: React.FC<Props> = ({type}) => {
             case 'breathInterval': return context.setInterval
         }
     }
+    function getLimits(): Limits{
+        switch(type){
+            case 'roundAmount': return {min: 1, max: 20}
+            case 'breathCount': return {min: 1, max: 100}
+            case 'breathInterval': return {min: 0.01, max: 10}
+        }
+    }
+    
+    function handleInput(value: string): void{
+        const tryParse = parseInt(value)
+        let newValue = isNaN(tryParse) ? 0 : tryParse
+        newValue = Math.min(newValue, limits.max)
+        newValue = Math.max(newValue, limits.min)
+        setter(newValue)
+    }
 
     return (
         <div className='flex'>
@@ -45,7 +66,7 @@ const SetupInput: React.FC<Props> = ({type}) => {
             <input 
                 type='number'
                 value={value}
-                onChange={(e) => setter(parseInt(e.target.value))}
+                onChange={(e) => handleInput(e.target.value)}
             />
         </div>
     )
