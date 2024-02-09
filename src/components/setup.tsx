@@ -1,17 +1,26 @@
 import { useContext } from "react"
-import SetupInput from "./SetupInput"
+import SetupForm from "./SetupForm"
 import { SessionContext } from "../SessionContext"
-import { sessionState } from "../sessionParameters"
+import { SessionState } from "../sessionParameters"
 
 const Setup = () => {
-  if(useContext(SessionContext)!.state !== sessionState.Setup)
+  const setState = useContext(SessionContext)!.setState
+  const setCurrentRound = useContext(SessionContext)!.setCurrentRound
+  function start() {
+    setState(SessionState.Preparation)
+    setCurrentRound(0)
+  }
+
+  if(useContext(SessionContext)!.state !== SessionState.Setup)
     return <></>
-  
   return (
     <div>
-      <SetupInput type="roundAmount" />
-      <SetupInput type="breathCount" />
-      <SetupInput type="breathInterval" />
+      <SetupForm type="roundAmount" />
+      <SetupForm type="breathCount" />
+      <SetupForm type="breathInterval" />
+      <button onClick={() => start()}>
+        Start
+      </button>
     </div>
   )
 }

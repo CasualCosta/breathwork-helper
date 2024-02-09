@@ -9,7 +9,8 @@ type Limits = {
     max: number
 }
 
-const SetupInput: React.FC<Props> = ({type}) => {
+const SetupForm: React.FC<Props> = ({type}) => {
+    const context = useContext(SessionContext)!
     const description: string = setDescription()
     const value: number = getValue()
     const setter = getAction()
@@ -28,19 +29,18 @@ const SetupInput: React.FC<Props> = ({type}) => {
             throw new Error("Context is undefined.")
         }
         switch(type){
-            case "roundAmount": return useContext(SessionContext)!.rounds
-            case "breathCount": return useContext(SessionContext)!.count
-            case "breathInterval": return useContext(SessionContext)!.interval
+            case "roundAmount": return context.maxRounds
+            case "breathCount": return context.maxCount
+            case "breathInterval": return context.interval
         }
     }
     function getAction(): Dispatch<SetStateAction<number>> {
         if(!useContext(SessionContext)){
             throw new Error("Context is undefined.")
         }
-        const context = useContext(SessionContext)!
         switch(type){
-            case 'roundAmount': return context.setRounds
-            case 'breathCount': return context.setCount
+            case 'roundAmount': return context.setMaxRounds
+            case 'breathCount': return context.setMaxCount
             case 'breathInterval': return context.setInterval
         }
     }
@@ -72,4 +72,4 @@ const SetupInput: React.FC<Props> = ({type}) => {
     )
 }
 
-export default SetupInput
+export default SetupForm

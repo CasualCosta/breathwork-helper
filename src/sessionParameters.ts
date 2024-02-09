@@ -1,22 +1,24 @@
 import { Dispatch, SetStateAction } from "react"
 
-export enum sessionState {
+export enum SessionState {
     Setup = 0,
     Preparation = 1,
     Breathe = 2,
     Hold = 3,
-    recovery = 4,
-    results = 5
+    Recovery = 4,
+    Results = 5
 }
 export type SessionParameters = {
-    rounds: number,
-    setRounds: Dispatch<SetStateAction<number>>,
-    count: number,
-    setCount: Dispatch<SetStateAction<number>>,
+    maxRounds: number,
+    setMaxRounds: Dispatch<SetStateAction<number>>,
+    currentRound: number,
+    setCurrentRound: Dispatch<SetStateAction<number>>,
+    maxCount: number,
+    setMaxCount: Dispatch<SetStateAction<number>>,
     interval: number,
     setInterval: Dispatch<SetStateAction<number>>,
     holds: number[]
     setHolds: Dispatch<SetStateAction<number[]>>,
-    state: sessionState
-    setState: Dispatch<SetStateAction<sessionState>>
+    state: SessionState
+    setState: Dispatch<SetStateAction<SessionState>>
 } | null
