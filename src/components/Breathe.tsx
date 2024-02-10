@@ -15,9 +15,10 @@ const Breathe = () => {
         if(count < context.maxCount){
             setTimeout(() => {
                 setCount(count + 1)
-            }, interval * 1000);
+            }, interval);
             return
         }
+        setCount(0)
         setState(SessionState.Hold)
     })
     

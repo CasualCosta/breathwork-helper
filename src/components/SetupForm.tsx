@@ -21,7 +21,7 @@ const SetupForm: React.FC<Props> = ({type}) => {
         switch(type){
             case "roundAmount": return "Amount of rounds"
             case "breathCount": return "Amount of breaths"
-            case "breathInterval": return "Interval"
+            case "breathInterval": return "Interval (in ms)"
         }
     }
     function getValue(): number {
@@ -48,7 +48,7 @@ const SetupForm: React.FC<Props> = ({type}) => {
         switch(type){
             case 'roundAmount': return {min: 1, max: 20}
             case 'breathCount': return {min: 1, max: 100}
-            case 'breathInterval': return {min: 0.01, max: 10}
+            case 'breathInterval': return {min: 1, max: 10000}
         }
     }
     

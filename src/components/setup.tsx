@@ -4,14 +4,23 @@ import { SessionContext } from "../SessionContext"
 import { SessionState } from "../sessionParameters"
 
 const Setup = () => {
-  const setState = useContext(SessionContext)!.setState
-  const setCurrentRound = useContext(SessionContext)!.setCurrentRound
+  const context = useContext(SessionContext)!
+  const setState = context.setState
+  const setCurrentRound = context.setCurrentRound
+  const setHolds = context.setHolds
+  const holds = context.holds
+  const maxRounds = context.maxRounds
   function start() {
     setState(SessionState.Preparation)
     setCurrentRound(0)
+    resetHolds()
   }
 
-  if(useContext(SessionContext)!.state !== SessionState.Setup)
+  function resetHolds(){
+    const newHolds = Array(maxRounds).fill(0)
+    setHolds(newHolds)
+  }
+  if(context.state !== SessionState.Setup)
     return <></>
   return (
     <div>

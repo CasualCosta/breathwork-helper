@@ -6,12 +6,15 @@ import { SessionState } from './sessionParameters'
 import Setup from './components/Setup'
 import Preparation from './components/Preparation'
 import Breathe from './components/Breathe'
+import Hold from './components/Hold'
+import Recovery from './components/Recovery'
+import Results from './components/Results'
 
 function App() {
   const [rounds, setRounds] = useState<number>(3)
   const [currentRound, setCurrentRound] = useState<number>(0)
   const [count, setCount] = useState<number>(30)
-  const [interval, setInterval] = useState<number>(1)
+  const [interval, setInterval] = useState<number>(1000)
   const [holds, setHolds] = useState<number[]>(Array(rounds).fill(0))
   const [state, setState] = useState<SessionState>(SessionState.Setup)
 
@@ -33,6 +36,9 @@ function App() {
       <Setup />
       <Preparation />
       <Breathe />
+      <Hold />
+      <Recovery />
+      <Results />
       {/* <div>State: {state}</div> */}
     </SessionContext.Provider>
   )
