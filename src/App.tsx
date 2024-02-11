@@ -33,13 +33,15 @@ function App() {
       state: state,
       setState: setState
     }}>
-      <Setup />
-      <Preparation />
-      <Breathe />
-      <Hold />
-      <Recovery />
-      <Results />
-      {/* <div>State: {state}</div> */}
+      <div className='h-dvh flex justify-center items-center'>
+        <Setup />
+        <Preparation />
+        <Breathe />
+        <Hold />
+        <Recovery />
+        <Results />
+        {/* <div>State: {state}</div> */}
+      </div>
     </SessionContext.Provider>
   )
 }

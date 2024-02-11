@@ -26,7 +26,11 @@ const Breathe = () => {
     if(state !== SessionState.Breathe)
         return <></>
     return (
-        <div>{count + 1}</div>
+        <div className='z-2 w-24 bg-orange-700 h-4/12'>
+            <div className='z-3'>
+                {count + 1}
+            </div>
+        </div>
     )
 }
 

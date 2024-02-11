@@ -9,7 +9,7 @@ type Limits = {
     max: number
 }
 
-const SetupForm: React.FC<Props> = ({type}) => {
+const SetupItem: React.FC<Props> = ({type}) => {
     const context = useContext(SessionContext)!
     const description: string = setDescription()
     const value: number = getValue()
@@ -60,16 +60,20 @@ const SetupForm: React.FC<Props> = ({type}) => {
         setter(newValue)
     }
 
+    const divWidth = 'w-40'
     return (
-        <div className='flex'>
-            <div>{description}: </div>
-            <input 
-                type='number'
-                value={value}
-                onChange={(e) => handleInput(e.target.value)}
-            />
+        <div className='flex gap-2'>
+            <div className={`${divWidth} flex justify-end`}>{description}: </div>
+            <div className={`${divWidth} flex justify-start`}>
+                <input 
+                    type='number'
+                    className='w-24 rounded text-emerald-900'
+                    value={value}
+                    onChange={(e) => handleInput(e.target.value)}
+                    />
+            </div>
         </div>
     )
 }
 
-export default SetupForm
+export default SetupItem

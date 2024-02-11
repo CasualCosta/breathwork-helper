@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import SetupForm from "./SetupForm"
+import SetupItem from "./SetupItem"
 import { SessionContext } from "../SessionContext"
 import { SessionState } from "../sessionParameters"
 
@@ -8,7 +8,6 @@ const Setup = () => {
   const setState = context.setState
   const setCurrentRound = context.setCurrentRound
   const setHolds = context.setHolds
-  const holds = context.holds
   const maxRounds = context.maxRounds
   function start() {
     setState(SessionState.Preparation)
@@ -23,11 +22,16 @@ const Setup = () => {
   if(context.state !== SessionState.Setup)
     return <></>
   return (
-    <div>
-      <SetupForm type="roundAmount" />
-      <SetupForm type="breathCount" />
-      <SetupForm type="breathInterval" />
-      <button onClick={() => start()}>
+    <div className="bg-green-600 rounded w-6/12 h-6/12 py-8 top-6/12 text-white">
+      <div className="flex flex-col items-center gap-2 px-4 py-4">
+        <SetupItem type="roundAmount" />
+        <SetupItem type="breathCount" />
+        <SetupItem type="breathInterval" />
+      </div>
+      <button 
+        className="bg-emerald-800 rounded px-4"
+        onClick={() => start()}
+      >
         Start
       </button>
     </div>

@@ -12,13 +12,15 @@ const Preparation = () => {
             return
         setTimeout(() => {
             setState(SessionState.Breathe)
-        }, 500);
+        }, 300);
     }, [context.state])
     
     if(context.state !== SessionState.Preparation)
         return <></>
     return (
-        <div>Round {round + 1}</div>
+        <div className='bg-teal-600 rounded w-4/12  py-8 text-white'>
+            Round {round + 1}
+        </div>
     )
 }
 
