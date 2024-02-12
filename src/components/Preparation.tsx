@@ -12,13 +12,13 @@ const Preparation = () => {
             return
         setTimeout(() => {
             setState(SessionState.Breathe)
-        }, 300);
+        }, 1000);
     }, [context.state])
     
     if(context.state !== SessionState.Preparation)
         return <></>
     return (
-        <div className='bg-teal-600 rounded w-4/12  py-8 text-white'>
+        <div className='bg-teal-600 z-2 w-96 h-96 mt-36 h-4/12 flex flex-col justify-center items-center rounded-full text-6xl text-slate-100'>
             Round {round + 1}
         </div>
     )

@@ -15,8 +15,8 @@ const Recovery = () => {
         if(context.state  !== SessionState.Recovery)
             return
         
-        if(seconds < 15){
-            setTimeout(() => setSeconds(seconds + 1), 100);
+        if(seconds < 1){
+            setTimeout(() => setSeconds(seconds + 1), 1000);
             return
         }
         console.log(`Current round + 1: ${currentRound + 1}; Max rounds: ${maxRounds}.`)
@@ -28,7 +28,10 @@ const Recovery = () => {
     if(state !== SessionState.Recovery)
         return <></>
     return (
-        <div>Recovery: {seconds}</div>
+        <div className='bg-teal-900 z-2 w-96 h-96 mt-36 h-4/12 flex flex-col justify-center items-center rounded-full text-8xl text-slate-100 relative'>
+            <p className='text-2xl absolute top-32 pb-16 h-32'>Recovery:</p>
+            <p>{seconds}</p>
+        </div>
     )
 }
 

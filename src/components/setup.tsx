@@ -22,14 +22,14 @@ const Setup = () => {
   if(context.state !== SessionState.Setup)
     return <></>
   return (
-    <div className="bg-green-600 rounded w-6/12 h-6/12 py-8 top-6/12 text-white">
+    <div className="w-96 h-96 mt-36 flex flex-col justify-center items-center text-lg text-slate-100 relative bg-green-600 rounded-3xl h-6/12 py-8 top-6/12 ">
       <div className="flex flex-col items-center gap-2 px-4 py-4">
         <SetupItem type="roundAmount" />
         <SetupItem type="breathCount" />
-        <SetupItem type="breathInterval" />
+        {/* <SetupItem type="breathInterval" /> */}
       </div>
       <button 
-        className="bg-emerald-800 rounded px-4"
+        className="bg-emerald-800 rounded px-4 mt-4 hover: hover:scale-110 hover:bg-emerald-700 duration-300"
         onClick={() => start()}
       >
         Start

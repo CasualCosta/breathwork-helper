@@ -13,7 +13,7 @@ const Hold = () => {
     useEffect(() => {
         if(context.state !== SessionState.Hold)
             return
-        timer = setTimeout(() => setSeconds(seconds + 1), 100);
+        timer = setTimeout(() => setSeconds(seconds + 1), 1000);
     }, [state, seconds])
 
     function endHold(){
@@ -31,13 +31,16 @@ const Hold = () => {
     if(context.state !== SessionState.Hold)
         return <></>
     return (
-        <div>
-            <p>{Math.floor(seconds / 60)}:{(seconds % 60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false})}</p>
-        <button
-            onClick={() => endHold()}
-        >
-            End
-        </button>
+        <div className='flex flex-col text-slate-100 items-center'>
+            <div className='bg-teal-900 z-2 w-96 h-96 mt-36 h-4/12 flex justify-center items-center rounded-full text-8xl'>
+                <p className=''>{Math.floor(seconds / 60)}:{(seconds % 60).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping: false})}</p>
+            </div>
+            <button
+                className='rounded m-8 bg-cyan-900 w-32 h-16 text-4xl transition ease-in-out hover:scale-110 hover:bg-cyan-700 duration-300'
+                onClick={() => endHold()}
+            >
+                End
+            </button>
         </div>
     )
 }

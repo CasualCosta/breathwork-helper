@@ -62,7 +62,7 @@ const SetupItem: React.FC<Props> = ({type}) => {
 
     const divWidth = 'w-40'
     return (
-        <div className='flex gap-2'>
+        <div className='flex gap-4'>
             <div className={`${divWidth} flex justify-end`}>{description}: </div>
             <div className={`${divWidth} flex justify-start`}>
                 <input 
