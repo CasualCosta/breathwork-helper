@@ -1,5 +1,5 @@
 import './App.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 // import { SessionContext } from './SessionContext'
 import { SessionContext } from './SessionContext'
 import { SessionState } from './sessionParameters'
@@ -18,6 +18,9 @@ function App() {
   const [holds, setHolds] = useState<number[]>(Array(rounds).fill(0))
   const [state, setState] = useState<SessionState>(SessionState.Setup)
 
+  useEffect(() => {
+    document.title = "Breathwork Helper"
+  })
   return (
     <SessionContext.Provider value={{
       maxRounds: rounds, 
