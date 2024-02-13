@@ -15,7 +15,7 @@ const Recovery = () => {
         if(context.state  !== SessionState.Recovery)
             return
         
-        if(seconds < 1){
+        if(seconds < 15){
             setTimeout(() => setSeconds(seconds + 1), 1000);
             return
         }

@@ -12,7 +12,7 @@ const Preparation = () => {
             return
         setTimeout(() => {
             setState(SessionState.Breathe)
-        }, 1000);
+        }, 5000);
     }, [context.state])
     
     if(context.state !== SessionState.Preparation)

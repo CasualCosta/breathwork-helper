@@ -14,7 +14,7 @@ function App() {
   const [rounds, setRounds] = useState<number>(3)
   const [currentRound, setCurrentRound] = useState<number>(0)
   const [count, setCount] = useState<number>(30)
-  const [interval, setInterval] = useState<number>(2000)
+  const [interval, setInterval] = useState<number>(3000)
   const [holds, setHolds] = useState<number[]>(Array(rounds).fill(0))
   const [state, setState] = useState<SessionState>(SessionState.Setup)
 
