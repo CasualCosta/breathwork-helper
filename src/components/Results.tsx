@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import {useContext} from 'react'
 import { SessionContext } from '../SessionContext'
 import { SessionState } from '../sessionParameters'
 
